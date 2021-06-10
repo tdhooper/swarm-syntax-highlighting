@@ -7,7 +7,7 @@
     {
         "matches": ["http://swarm/*"],
         "js": ["inject.js"],
-        "css": ["prism.css"]
+        "css": ["prism.css", "main.css"]
     }
   ],
     "web_accessible_resources": [
