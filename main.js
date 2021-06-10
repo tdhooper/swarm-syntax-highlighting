@@ -12,8 +12,10 @@ const highlightCode = function(el) {
 
     if (lines.length > 0) {
 
-        // Parse the extention out of the file name
+        // Parse the extension out of the file name
         var extension = el.parentNode.querySelector('.filename').textContent.split('.').pop().trim();
+
+        // Alias extensions to a language
         var language = languageMap[extension] ? languageMap[extension] : extension;
 
         lines.forEach(el => {
@@ -25,15 +27,10 @@ const highlightCode = function(el) {
             }
             el.classList.add('swarm-syntax-processed');
 
-            // Strip HTML and escape
-            var code = escapeHtml(el.textContent);
+            // Add a language hint
+            el.classList.add('language-' + language);
 
-            // Wrap the code in the an element to stop highlightJs messing with background styles,
-            // and add a language detection hint
-            el.innerHTML = '<span class="language-' + language + '">' + code + '</span>';
-
-            // Run highlightJs on the span element
-            hljs.highlightElement(el.firstElementChild);
+            Prism.highlightElement(el);
         });
     }    
 }

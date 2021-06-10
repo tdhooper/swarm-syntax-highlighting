@@ -5,6 +5,6 @@ function injectScript(file, node) {
     s.setAttribute('src', file);
     th.appendChild(s);
 }
-injectScript( chrome.extension.getURL('/highlight.min.js'), 'body');
+injectScript( chrome.extension.getURL('/prism.js'), 'body');
 injectScript( chrome.extension.getURL('/escape-html.js'), 'body');
 injectScript( chrome.extension.getURL('/main.js'), 'body');
